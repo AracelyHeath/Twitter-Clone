@@ -14,6 +14,8 @@ from pathlib import Path
 import cloudinary
 import cloudinary.api 
 import cloudinary.uploader
+import dj_database_url 
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,10 +80,11 @@ WSGI_APPLICATION = 'django_forum.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    'default': dj_database_url.parse('postgres://twitter_clone_jugq_user:wY5A0DY8eFGrfL3EjeQOn91UPMOow13k@dpg-cna3sea1hbls73diktj0-a.oregon-postgres.render.com/twitter_clone_jugq')
 }
 
 
